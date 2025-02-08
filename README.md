@@ -1,0 +1,1 @@
+# NakatsukaRyota-Python_Crash_Course_Part2
