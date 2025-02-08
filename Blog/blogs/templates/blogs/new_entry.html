@@ -1,0 +1,11 @@
+{% extends "blogs/base.html" %} {% block content%}
+
+<p><a href="{% url 'blogs:blog' blog.id %}">{{ blog }}</a></p>
+
+<p>新しい記事を追加:</p>
+<form action="{% url 'blogs:new_entry' blog.id %}" method="post">
+  {% csrf_token %} {{ form.as_div }}
+  <button nama="submit">記事を追加</button>
+</form>
+
+{% endblock content %}

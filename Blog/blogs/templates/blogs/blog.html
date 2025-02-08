@@ -1,0 +1,23 @@
+{% extends "blogs/base.html" %} {% block content %}
+
+<p>ブログ: {{ blog.text }}</p>
+
+<p>記事:</p>
+<p>
+  <a href="{% url 'blogs:new_entry' blog.id %}">新しい記事を追加</a>
+</p>
+
+<ul>
+  {% for entry in entries %}
+  <li>
+    <p>{{ entry.data_added|date:'Y年m月d日 H:i' }}</p>
+    <p>{{ entry.text|linebreaks }}</p>
+    <p>
+      <a href="{% url 'blogs:edit_entry' entry.id %}">記事を編集<a/>
+  </li>
+  {% empty %}
+  <li>このブログにはまだ記事がありません。</li>
+  {% endfor %}
+</ul>
+
+{% endblock content %}
